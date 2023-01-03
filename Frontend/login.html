@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="styles/medias/tabLogo.png" type="image/x-icon">
+
+    <!-- google APIs -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+    <link rel="stylesheet" href="styles/loginStyle.css">
+    <title>Login | Reserve</title>
+</head>
+
+<body>
+    <div class="loginMain">
+        <div class="loginData">
+            <div class="loginText">Welcome to <br>&emsp;RESERVE
+            </div>
+            <div class="loginInput">
+                <form action="" method="post" class="loginForm">
+                    <label for="username" class="loginUsenameLabel">Username:</label>
+                    <div>
+                        <input type="text" id="username" placeholder="Insert your username" class="loginUsenameInput">
+                        <span class="material-symbols-outlined hidden">visibility
+                        </span>
+                    </div>
+                    <label for="password" class="loginPasswordLabel">Password:</label>
+                    <div>
+                        <input type="password" id="password" placeholder="Insert your password"
+                            class="loginPasswordInput">
+                        <span class="material-symbols-outlined loginEye">
+                            visibility
+                        </span>
+                    </div>
+                </form>
+                <div class="loginButton">
+                    <button type="submit">Log in</button>
+                </div>
+            </div>
+            <div class="loginRegister">New here? &nbsp; <span>Register!</span> </div>
+        </div>
+        <div class="loginRegisterPage">
+            <div class="loginText">Welcome to <br>&emsp;RESERVE</div>
+            <div class="loginInputReg">
+                <form action="" method="post" class="loginFormReg">
+                    <label for="emailReg" class="loginEmailLabelReg">Email:</label>
+                    <div>
+                        <input type="email" id="emailReg" placeholder="Insert your email" class="loginEmailInputReg">
+                        <span class="material-symbols-outlined hidden">visibility
+                        </span>
+                    </div>
+                    <label for="usernameReg" class="loginUsenameLabelReg">Username:</label>
+                    <div>
+                        <input type="text" id="usernameReg" placeholder="Insert your username"
+                            class="loginUsenameInputReg">
+                        <span class="material-symbols-outlined hidden">visibility
+                        </span>
+                    </div>
+                    <label for="passwordReg" class="loginPasswordLabelReg">Password:</label>
+                    <div>
+                        <input type="password" id="passwordReg" placeholder="Insert your password"
+                            class="loginPasswordInputReg">
+                        <span class="material-symbols-outlined loginEye">
+                            visibility
+                        </span>
+                    </div>
+                </form>
+                <div class="loginButtonReg">
+                    <div class="loginAccept">
+                        <input type="checkbox" name="" id="loginCheckboxReg" value="loginCheckboxAccept"
+                            class="loginCheckboxReg">
+                        <label for="loginCheckboxReg">&nbsp; I accept the rules</label>
+                    </div>
+                    <div class="loginButtonSignup">
+                        <button disabled type="submit">Sign up</button>
+                    </div>
+                </div>
+            </div>
+            <div class="loginLogin">have an account? &nbsp; <span>Log in!</span> </div>
+        </div>
+        <div class="loginBackground">
+            <div class="loginTime"></div>
+        </div>
+
+    </div>
+
+    <script src="scripts/loginReflexiv.js"></script>
+    <script src="scripts/loginSecCheck.js"></script>
+    <script src="scripts/loginTime.js"></script>
+</body>
+
+</html>

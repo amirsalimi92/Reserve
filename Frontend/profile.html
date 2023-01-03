@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- my styles -->
+    <link rel="shortcut icon" href="styles/medias/tabLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/profileStyle.css">
+    <title>Profile | Reserve</title>
+</head>
+
+<body>
+    <div class="base">
+        <!-- Start of navbar -->
+        <header>
+            <nav class="navbar">
+                <a href="#" class="navLogo">Reserve</a>
+                <ul class="navMenu">
+                    <li class="navMenuItem">
+                        <a class="navMenuItemLink">Floors</a>
+                        <ul class="dropdown">
+                            <li><a href="first.html">First floor</a></li>
+                            <li><a href="second.html">Second floor</a></li>
+                            <li><a href="third.html">Third floor</a></li>
+                        </ul>
+                    </li>
+                    <li class="navMenuItem">
+                        <a class="navMenuItemLink">Settings</a>
+                        <ul class="dropdown">
+                            <li><a href="about.html">About the APP</a></li>
+                            <li><a href="report.html">Report the Bug</a></li>
+                        </ul>
+                    </li>
+                    <li class="navMenuItem">
+                        <a href="post.html" class="navMenuItemLink">Post Status</a>
+                    </li>
+                </ul>
+
+                <!-- We have to use the user name later -->
+                <div class="welcome">Welcome Amir</div>
+                <div class="theme"><span class="material-symbols-outlined">
+                        settings_night_sight
+                    </span></div>
+                <div class="logout">Sign out</div>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- End of navbar -->
+        <!-- Start of content -->
+        <div class="content">
+            <div class="profilePhoto">
+                <div class="profilePhotoImg"></div>
+            </div>
+            <div class="profileData">
+                <form action="" method="post" class="profileDataForm">
+                    <div class="profileFirstname">
+                        <label for="profileFirstname">First name: </label>
+                        <input type="text" id="profileFirstname">
+                    </div>
+                    <div class="profileFamilyname">
+                        <label for="profileLastname">Last name: </label>
+                        <input type="text" id="profileLastname">
+                    </div>
+                    <div class="profileEmail">
+                        <label for="profileEmail">Email: </label>
+                        <input type="email" id="profileEmail">
+                    </div>
+                    <div class="profilePassword">
+                        <label for="profilePassword">Password: </label>
+                        <input type="password" id="profilePassword">
+                    </div>
+                    <!-- we need a password input for edit page -->
+                    <div class="office">
+                        <label for="profileOffice">Office: </label>
+                        <select id="profileOffice">
+                            <option value="Bonn">Bonn</option>
+                            <option value="Cologne">Cologne</option>
+                            <option value="Frankfurt">Frankfurt</option>
+                            <option value="Other in Germany">Other in Germany</option>
+                            <option value="USA">USA</option>
+                            <option value="France">France</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                    </div>
+                    <div class="department">
+                        <label for="profileDepartment">Department: </label>
+                        <select id="profileDepartment">
+                            <option value="Developers">Developers</option>
+                            <option value="IT & Product support">IT & Product support</option>
+                            <option value="Product management">Product management</option>
+                            <option value="Project leaders">Project leaders</option>
+                            <option value="QA">QA</option>
+                            <option value="IT infrastructure">IT infrastructure</option>
+                            <option value="Finance & Legal">Finance & Legal</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Sell & Solution consulting">Sell & Solution consulting</option>
+                            <option value="HR & people support">HR & people support</option>
+                            <option value="Innonspot">Innonspot</option>
+                            <option value="Viima">Viima</option>
+                            <option value="Administration">Administration</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="profileName">Amir</div>
+            <div class="profileFamily">Salimi</div>
+            <div class="profileButton">
+                <button type="submit">Edit</button>
+            </div>
+        </div>
+        <!-- end of content -->
+    </div>
+
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/profileTheme.js"></script>
+</body>
+
+</html>

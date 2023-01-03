@@ -1,0 +1,5 @@
+-How to active the virtual environment?
+    Backend\env\Scripts\activate.bat
+
+    *Then you'll see the PS (Windows) or env (MacOS) before the lines in Terminal
+    

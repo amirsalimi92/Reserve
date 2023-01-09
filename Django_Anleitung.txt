@@ -3,3 +3,11 @@
 
     *Then you'll see the PS (Windows) or env (MacOS) before the lines in Terminal
     
+
+Requirment on Device:
+-Python 3.11.1
+-pip 22.3.1
+-virtualenv 20.17.1
+
+on Virtual environment:
+-Django 4.1.5

@@ -11,7 +11,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- My styles -->
-    <link rel="shortcut icon" href="styles/medias/tabLogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'styles/medias/tabLogo.png' %}" type="image/x-icon">
     {% block styles %} {% endblock %}
     {% block title %} {% endblock %}
 </head>
@@ -47,7 +47,7 @@
                 <div class="theme"><span class="material-symbols-outlined">
                         settings_night_sight
                     </span></div>
-                <div class="logout">Sign out</div>
+                <div class="logout"><a href="/members/login_user/">Sign out</a></div>
 
                 <div class="hamburger">
                     <span class="bar"></span>

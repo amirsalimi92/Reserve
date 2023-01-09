@@ -18,5 +18,3 @@ class FloorsDB(models.Model):
 
     def __str__(self):
         return f'{self.floor}, number {self.officeName}'
-
-

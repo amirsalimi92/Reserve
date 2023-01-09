@@ -20,4 +20,3 @@ class FloorsDB(models.Model):
         return f'{self.floor}, number {self.officeName}'
 
 
-

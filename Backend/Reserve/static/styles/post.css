@@ -1,0 +1,215 @@
+.postBase {
+  height: 93vh;
+  background-color: #f3f2f2;
+}
+
+.postContent {
+  width: 65%;
+  margin: 0 25% 0 10%;
+  padding: 5% 0 3% 0;
+  box-sizing: border-box;
+}
+
+.postSearch {
+  margin-bottom: 5%;
+  margin-left: 3%;
+}
+
+.postSearch label {
+  font-size: 1.7rem;
+  margin: 0 1% 0 0;
+}
+
+.postSearch input {
+  width: 30%;
+  line-height: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #1971c2;
+  font-size: 1.1rem;
+  padding: 0 1%;
+  overflow: scroll;
+}
+
+.postSearch button {
+  cursor: pointer;
+  color: #fff;
+  background-color: #1971c2;
+  border-color: #1971c2;
+  text-align: center;
+  border: none;
+  padding: 0.45rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+}
+
+.postSearch > div {
+  display: inline;
+}
+
+.postShow {
+  margin-left: 3%;
+  margin-bottom: 3%;
+}
+
+.postShow table {
+  display: table;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 80%;
+}
+
+.postShow tr {
+  display: table-row;
+  vertical-align: middle;
+}
+
+.postShow td {
+  padding: 1% 2%;
+}
+
+.postShowHead td {
+  background-color: #1971c2;
+  color: azure;
+  font-weight: lighter;
+  font-size: 1.2rem;
+}
+
+.postShow tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+.postShow tr:nth-child(even) {
+  background-color: rgb(121, 121, 121);
+  color: whitesmoke;
+}
+
+.postShow tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+
+.postAdd {
+  margin-left: 3%;
+}
+
+.postAdd label {
+  font-size: 1.7rem;
+  margin: 0 1% 0 0;
+}
+
+.postAdd input {
+  width: 27%;
+  line-height: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #1971c2;
+  font-size: 1.1rem;
+  padding: 0 1%;
+  overflow: scroll;
+}
+
+#postAddInputName {
+  width: 13%;
+}
+
+.postAdd button {
+  cursor: pointer;
+  color: #fff;
+  background-color: #1971c2;
+  border-color: #1971c2;
+  text-align: center;
+  border: none;
+  padding: 0.45rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.7rem;
+}
+
+/* night theme */
+.postBaseNight {
+  background-color: #0a0c10 !important;
+  transition: 0.5s;
+}
+
+.postSearchLabelNight {
+  color: lightgray;
+  transition: 0.5s;
+}
+
+.postSearchInputNight {
+  background-color: #0a0c10;
+  border: 1px solid whitesmoke !important;
+  color: lightgray;
+  transition: 0.5s;
+}
+
+.postButtonNight {
+  background-color: #515459 !important;
+  border-color: #515459 !important;
+  color: lightgray !important;
+  transition: 0.5s;
+}
+
+.postTable {
+  color: lightgray !important;
+  transition: 0.5s;
+}
+
+.postTableNight {
+  background-color: #0a0c10 !important;
+  color: lightgray;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 550px) {
+  .postContent {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .postSearch label {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .postSearch input {
+    display: block;
+    margin: 3% auto;
+    width: 60%;
+  }
+
+  .postSearch div {
+    display: block;
+    text-align: center;
+    margin: 5% auto;
+  }
+
+  .postShow {
+    margin: 7% auto;
+  }
+
+  .postShow table {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .postAdd {
+    margin: 3% auto;
+  }
+
+  .postAdd label {
+    display: block;
+    text-align: center;
+  }
+
+  .postAdd input {
+    display: block;
+    margin: 2% auto;
+    width: 75% !important;
+  }
+
+  .postAdd button {
+    display: block;
+    margin: 3% auto;
+  }
+}

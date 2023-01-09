@@ -9,7 +9,11 @@
 </head>
 
 <body>
-    <h1 style="color: brown;">hello</h1>
+    {% if datas %}
+    {% for data in datas %}
+    <h2>{{ data }}</h2>
+    {% endfor %}
+    {% endif %}
 </body>
 
 </html>

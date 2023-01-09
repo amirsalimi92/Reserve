@@ -1,0 +1,54 @@
+{% extends 'base_floors.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="shortcut icon" href="{% static 'styles/medias/tabLogo.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'styles/floors.css' %}">
+{% endblock %}
+{% block title %}
+<title>First floor | Reserve</title>
+{% endblock %}
+
+{% block floors_dd %}
+<li><a href="/office/second">Second floor</a></li>
+<li><a href="/office/third">Third floor</a></li>
+{% endblock %}
+{% block body %}
+<!-- Start of Content -->
+<div class="firstFloor">
+    <div class="ffPhoto">
+        <div class="ffPhotoContent">
+            <img src="{% static 'styles/medias/floors/Bonn_1.jpg' %}" alt="">
+        </div>
+    </div>
+    <div class="ffSelector">
+        <form action="" method="post" class="firstFloorSelector">
+            <div class="ffSelectorOffice">
+                <label for="ffRoomSelector">Select the office: </label>
+                <select name="ffRoomSelector" id="ffRoomSelector">
+                    {% if datas %}
+                    {% for data in datas %}
+                    <option value="FFO103">{{ data.officeName }}</option>
+                    {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+            <div class="ffSelectorDate">
+                <label for="calendar">Select the date: </label>
+                <input type="date" name="calendar" id="calendar">
+            </div>
+        </form>
+        <div class="ffSelectorButton">
+            <button type="submit">Reserve!</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'scripts/navbar.js' %}"></script>
+<script src="{% static 'scripts/floorsTheme.js' %}"></script>
+{% endblock %}

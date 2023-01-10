@@ -54,7 +54,8 @@
         <div class="loginRegisterPage">
             <div class="loginText">Welcome to <br>&emsp;RESERVE</div>
             <div class="loginInputReg">
-                <form action="" method="post">
+                <form action="" method="POST">
+                    {% csrf_token %}
                     <div class="loginFormReg">
                         <label for="emailReg" class="loginEmailLabelReg">Email:</label>
                         <div>

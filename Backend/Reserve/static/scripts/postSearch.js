@@ -6,8 +6,12 @@ searchButton.addEventListener("click", (e) => {
   searchValue = document
     .querySelector(".postSearch > input")
     .value.toLowerCase();
+  searchValueString = String(searchValue);
   for (const iterator of results) {
-    if (searchValue == iterator.innerHTML.toLowerCase()) {
+    // if (searchValue == iterator.innerHTML.toLowerCase()) {
+    //   iterator.parentElement.classList = "finalResult";
+    // }
+    if (String(iterator.innerHTML.toLowerCase()).includes(searchValueString)) {
       iterator.parentElement.classList = "finalResult";
     }
   }

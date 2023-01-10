@@ -32,22 +32,23 @@
                     <li class="navMenuItem">
                         <a class="navMenuItemLink">Settings</a>
                         <ul class="dropdown">
-                            <li><a href="about.html">About the APP</a></li>
-                            <li><a href="report.html">Report the Bug</a></li>
-                            <li><a href="profile.html">Preferences</a></li>
+                            {% block settings_dd %}
+
+                            {% endblock %}
                         </ul>
                     </li>
                     <li class="navMenuItem">
-                        <a href="post.html" class="navMenuItemLink">Post Status</a>
+                        {% block post %}
+                        {% endblock %}
                     </li>
                 </ul>
 
                 <!-- We have to use the user name later -->
-                <div class="welcome">Welcome Amir</div>
+                <div class="welcome">Welcome {{ request.user.username }}</div>
                 <div class="theme"><span class="material-symbols-outlined">
                         settings_night_sight
                     </span></div>
-                <div class="logout"><a href="/members/login_user/">Sign out</a></div>
+                <div class="logout"><a href="/members/logout_user/">Sign out</a></div>
 
                 <div class="hamburger">
                     <span class="bar"></span>

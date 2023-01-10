@@ -1,0 +1,35 @@
+{% extends 'base_floors.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="shortcut icon" href="{% static 'styles/medias/tabLogo.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'styles/about.css' %}">
+{% endblock %}
+{% block title %}
+<title>About us | Reserve</title>
+{% endblock %}
+
+{% block floors_dd %}
+<li><a href="/office/first">First floor</a></li>
+<li><a href="/office/second">Second floor</a></li>
+<li><a href="/office/third">Third floor</a></li>
+{% endblock %}
+
+{% block settings_dd %}
+<li><a href="/settings/report/">Report the Bug</a></li>
+<li><a href="profile.html">Preferences</a></li>
+{% endblock %}
+
+{% block post %}
+<a href="/settings/post/" class="navMenuItemLink">Post Status</a>
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'scripts/navbar.js' %}"></script>
+{% endblock %}

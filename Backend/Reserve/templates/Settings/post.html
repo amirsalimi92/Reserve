@@ -1,0 +1,83 @@
+{% extends 'base_floors.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="shortcut icon" href="{% static 'styles/medias/tabLogo.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'styles/post.css' %}">
+{% endblock %}
+{% block title %}
+<title>Post | Reserve</title>
+{% endblock %}
+
+{% block floors_dd %}
+<li><a href="/office/first">First floor</a></li>
+<li><a href="/office/second">Second floor</a></li>
+<li><a href="/office/third">Third floor</a></li>
+{% endblock %}
+
+{% block settings_dd %}
+<li><a href="/settings/about/">About the APP</a></li>
+<li><a href="/settings/report/">Report the Bug</a></li>
+<li><a href="profile.html">Preferences</a></li>
+{% endblock %}
+
+{% block post %}
+{% endblock %}
+
+{% block body %}
+<!-- Start of content -->
+<div class="postBase">
+    <div class="postContent">
+        <div class="postSearch">
+            <label for="postSearchInput">Search here: </label>
+            <input type="text" id="postSearchInput">
+            <div>
+                <button type="submit">Go</button>
+                <button class="postSearchRefresh">Refresh</button>
+            </div>
+
+        </div>
+        <div class="postShow">
+            <table>
+                <tbody>
+                    <tr class="postShowHead">
+                        <td>Reciever</td>
+                        <!-- from this row should recieve by server -->
+                        <td>Where is the Paket</td>
+                    </tr>
+                    <tr class="postShowResult">
+                        <td class="result ">Amir</td>
+                        <td class="result">IT-Office</td>
+                    </tr>
+                    <tr class="postShowResult">
+                        <td class="result">Max</td>
+                        <td class="result">Joachim's office</td>
+                    </tr>
+                    <tr class="postShowResult">
+                        <td class="result">Feredrik</td>
+                        <td class="result">Sylvia's office</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="postAdd">
+            <form action="" method="post">
+                <label for="postAddInput">Add new one: </label>
+                <input placeholder="For whom?" type="text" id="postAddInputName">
+                <input placeholder="Where?" type="text" id="postAddInputWhere">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'scripts/navbar.js' %}"></script>
+<script src="{% static 'scripts/postTheme.js' %}"></script>
+<script src="{% static 'scripts/postSearch.js' %}"></script>
+{% endblock %}

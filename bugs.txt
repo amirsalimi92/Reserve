@@ -1,0 +1,3 @@
+***post page works just with full name.
+if you write ami instead of amir, it doesn't show anythings.
+

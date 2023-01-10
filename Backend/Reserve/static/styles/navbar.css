@@ -49,6 +49,7 @@ li {
 .navMenuItem {
   list-style: none;
   justify-content: start;
+  transition: 0.7s;
 }
 
 .navMenuItemLink {
@@ -64,6 +65,7 @@ li {
 .logout {
   color: azure;
   cursor: pointer;
+  transition: 0.7s;
 }
 
 .logout:hover {
@@ -73,11 +75,20 @@ li {
   background-color: lightcoral;
 }
 
+.logout a {
+  text-decoration: none;
+  color: azure;
+}
+
 .navMenuItem:hover,
 .dropdown > li:hover {
   padding: 15px;
   border: 2px solid azure;
   transition: 0.5s;
+}
+
+.theme {
+  transition: 0.7s;
 }
 
 .theme:hover {

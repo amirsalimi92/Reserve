@@ -16,9 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# import view from members to make login page as first page
+
+from members import views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('office/', include('Office.urls')),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
+    # first page
+    path('', views.login_user, name="login"),
+    path('settings/', include('Office.urls')),
 ]

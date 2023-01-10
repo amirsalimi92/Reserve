@@ -13,6 +13,8 @@
 /* original tags */
 * {
   font-family: "Fredoka One";
+  margin: 0px;
+  padding: 0px;
 }
 
 /* base */
@@ -25,8 +27,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
-  padding: 0;
 }
 
 /* login */
@@ -42,7 +42,7 @@
 }
 
 .loginText {
-  grid: loginText;
+  grid-area: loginText;
   filter: blur(0px);
   display: flex;
   align-items: center;
@@ -51,15 +51,19 @@
   padding-left: 5%;
 }
 
-.loginInput,
-.loginInputReg {
+.loginInput {
   display: grid;
   grid-row-gap: 5%;
 }
 
 .loginInput {
-  grid: loginInput;
+  grid-area: loginInput;
+}
+
+.loginInput > form {
+  display: grid;
   grid-template-rows: 3fr 2fr;
+  grid-gap: 3%;
   grid-template-areas:
     "loginForm"
     "loginButton";
@@ -185,6 +189,12 @@
 
 .loginInputReg {
   grid: loginInput;
+}
+
+.loginInputReg > form {
+  display: grid;
+  height: 100%;
+  grid-row-gap: 5%;
   grid-template-rows: 5fr 2fr;
   grid-template-areas:
     "loginFormReg"
@@ -192,7 +202,7 @@
 }
 
 .loginFormReg {
-  grid: loginFormReg;
+  /* grid: loginFormReg; */
   display: grid;
   grid-template-rows: repeat(6, 1fr);
 }

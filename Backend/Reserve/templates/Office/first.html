@@ -15,6 +15,17 @@
 <li><a href="/office/second">Second floor</a></li>
 <li><a href="/office/third">Third floor</a></li>
 {% endblock %}
+
+{% block settings_dd %}
+<li><a href="/settings/about/">About the APP</a></li>
+<li><a href="/settings/report/">Report the Bug</a></li>
+<li><a href="profile.html">Preferences</a></li>
+{% endblock %}
+
+{% block post %}
+<a href="/settings/post/" class="navMenuItemLink">Post Status</a>
+{% endblock %}
+
 {% block body %}
 <!-- Start of Content -->
 <div class="firstFloor">

@@ -1,0 +1,62 @@
+{% extends 'base_floors.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="shortcut icon" href="{% static 'styles/medias/tabLogo.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'styles/report.css' %}">
+{% endblock %}
+{% block title %}
+<title>Report the bugs | Reserve</title>
+{% endblock %}
+
+{% block floors_dd %}
+<li><a href="/office/first">First floor</a></li>
+<li><a href="/office/second">Second floor</a></li>
+<li><a href="/office/third">Third floor</a></li>
+{% endblock %}
+
+{% block settings_dd %}
+<li><a href="/settings/about/">About the APP</a></li>
+<li><a href="profile.html">Preferences</a></li>
+{% endblock %}
+
+{% block post %}
+<a href="/settings/post/" class="navMenuItemLink">Post Status</a>
+{% endblock %}
+
+{% block body %}
+<!-- start of content -->
+<div class="reportBase">
+    <div class="reportContent">
+        <div class="reportData">
+            <div class="reportText">We thank you for helping us improve the program. You can report the problems
+                of the program to us from the menu below or send us your feedback about the program anonymously
+                or with your username.</div>
+            <form action="" method="post" class="reportDataForm">
+                <div class="reportSender">
+                    <label for="reportSenderLabel">Sender: </label>
+                    <select name="reportSenderInput" id="reportSenderInput">
+                        <option value="anonymous">Amomymous</option>
+                        <!-- It should recieve the username later -->
+                        <option value="username">Username</option>
+                    </select>
+                    <textarea name="reportText" id="reportText" cols="30" rows="10"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="reportButton">
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- end of content -->
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'scripts/navbar.js' %}"></script>
+<script src="{% static 'scripts/reportTheme.js' %}"></script>
+{% endblock %}

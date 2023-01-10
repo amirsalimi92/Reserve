@@ -15,6 +15,17 @@
 <li><a href="/office/first">First floor</a></li>
 <li><a href="/office/second">Second floor</a></li>
 {% endblock %}
+
+{% block settings_dd %}
+<li><a href="/settings/about/">About the APP</a></li>
+<li><a href="/settings/report/">Report the Bug</a></li>
+<li><a href="profile.html">Preferences</a></li>
+{% endblock %}
+
+{% block post %}
+<a href="/settings/post/" class="navMenuItemLink">Post Status</a>
+{% endblock %}
+
 {% block body %}
 <!-- Start of Content -->
 <div class="firstFloor">
@@ -28,8 +39,11 @@
             <div class="ffSelectorOffice">
                 <label for="ffRoomSelector">Select the office: </label>
                 <select name="ffRoomSelector" id="ffRoomSelector">
-                    <option value="TFO308">Office 308</option>
-                    <option value="TFO317">Office 317</option>
+                    {% if datas %}
+                    {% for data in datas %}
+                    <option value={{ data.officeName }}>{{ data.officeName }}</option>
+                    {% endfor %}
+                    {% endif %}
                 </select>
             </div>
             <div class="ffSelectorDate">

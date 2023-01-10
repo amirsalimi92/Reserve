@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 
 # work with class instead of def
 from django.views.generic import ListView
@@ -40,3 +41,13 @@ def third_floor(request):
     }
 
     return render(request, "Office/third.html", context)
+
+
+def about_page(request):
+    return render(request, 'Settings/about.html', {})
+
+def report_bugs(request):
+    return render(request, "Settings/report.html", {})
+
+def post_view(request):
+    return render(request, 'Settings/post.html', {})

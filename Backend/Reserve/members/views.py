@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 
 
 from .models import CustomUser
+from .forms import ProfileEditForm
 
 # Create your views here.
 
@@ -30,9 +31,23 @@ def logout_user(request):
 
 def profileView(request):
     profile = request.user.profile
-
+    
     context = {
         "profile": profile,
     }
 
     return render(request, "Members/profile.html", context)
+
+def profileEdit(request, profile_id):
+    profile = CustomUser.objects.get(pk = profile_id)
+    profileForm = ProfileEditForm(instance=profile)
+
+    profile = request.user.profile
+    
+
+    context = {
+        "profileForm" : profileForm,
+        "profile": profile,
+    }
+
+    return render(request, "Members/editProfile.html", context)

@@ -22,6 +22,9 @@ class CustomUser(models.Model):
     # age = models.PositiveBigIntegerField(null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     # esme profile ke dar bala related kardim, dar view bekar mire vaghty minevisim request.user.profile
+
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     isActive = models.BooleanField(default=True)
     email = models.EmailField(default="@hype.de")
     office = models.ForeignKey(Office, on_delete=models.PROTECT)
@@ -45,5 +48,5 @@ class CustomUser(models.Model):
     # office = models.IntegerField(choices=status_of_office)
 
     def __str__(self):
-        return f'{self.user}'
+        return f'{self.first_name} {self.last_name}'
 

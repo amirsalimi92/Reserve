@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static 'styles/profileStyle.css' %}">
 {% endblock %}
 {% block title %}
-<title>Profile | Reserve</title>
+<title>Edit profile | Reserve</title>
 {% endblock %}
 
 {% block floors_dd %}
@@ -33,49 +33,41 @@
         <div class="profilePhotoImg"></div>
     </div>
     <div class="profileData">
-        <form action="" method="GET" class="profileDataForm">
+        <form action="" method="post" class="profileDataForm">
+            {% csrf_token %}
             <div class="profileFirstname">
                 <label for="profileFirstname">First name: </label>
-                <input type="text" id="profileFirstname" value="{{ profile.first_name }}" disabled>
+                {{ profileForm.first_name }}
             </div>
             <div class="profileFamilyname">
                 <label for="profileLastname">Last name: </label>
-                <input type="text" id="profileLastname" value="{{ profile.last_name }}" disabled>
+                {{ profileForm.last_name }}
             </div>
             <div class="profileEmail">
                 <label for="profileEmail">Email: </label>
-                <input type="email" id="profileEmail" value="{{ profile.email }}" disabled>
+                {{ profileForm.email }}
             </div>
-            <!-- for editing
             <div class="profilePassword">
                 <label for="profilePassword">Password: </label>
                 <input type="password" id="profilePassword">
-            </div> -->
+            </div>
             <!-- we need a password input for edit page -->
             <div class="office">
                 <label for="profileOffice">Office: </label>
-                <input type="text" value="{{ profile.office }}" disabled>
-                <!-- for editing
-                <select id="profileOffice">
-                    <option value="Bonn">Bonn</option>
-                </select> -->
-
+                {{ profileForm.office }}
             </div>
             <div class="department">
                 <label for="profileDepartment">Department: </label>
-                <input type="text" value="{{ profile.department }}" disabled>
-                <!-- for editing
-                <select id="profileDepartment">
-                    <option value="Developers">Developers</option>
-                </select> -->
+                {{ profileForm.department }}
+            </div>
+            <div class="profileButton">
+                <button type="submit">save</button>
             </div>
         </form>
     </div>
     <div class="profileName">{{ profile.first_name }}</div>
     <div class="profileFamily">{{ profile.last_name }}</div>
-    <div class="profileButton">
-        <a href="/members/edit/{{ profile.id }}">Edit</a>
-    </div>
+
 </div>
 <!-- end of content -->
 {% endblock %}

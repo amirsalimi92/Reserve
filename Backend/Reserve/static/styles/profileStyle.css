@@ -103,7 +103,8 @@ input:disabled {
   padding-left: 3%;
 }
 
-.profileButton > button {
+.profileButton > button,
+.profileButton > a {
   cursor: pointer;
   color: #fff;
   background-color: #1971c2;
@@ -113,6 +114,7 @@ input:disabled {
   padding: 0.5rem 2rem;
   font-size: 1.5rem;
   border-radius: 0.7rem;
+  text-decoration: none;
 }
 
 .profileButton > button:hover {

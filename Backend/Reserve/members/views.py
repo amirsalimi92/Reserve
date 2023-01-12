@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
 
+
+from .models import CustomUser
 
 # Create your views here.
 
@@ -26,7 +28,11 @@ def logout_user(request):
     return redirect('/')
 
 
-def register_user(request):
-    form = UserCreationForm()
-    context = { 'form' : form}
-    return render(request, 'Members/login.html', context)
+def profileView(request):
+    profile = request.user.profile
+
+    context = {
+        "profile": profile,
+    }
+
+    return render(request, "Members/profile.html", context)

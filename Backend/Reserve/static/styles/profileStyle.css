@@ -45,6 +45,11 @@
   margin: 4% 0px;
 }
 
+input:disabled {
+  background-color: #fff;
+  color: #0a0c10;
+}
+
 .profileData label {
   font-size: 1.2rem;
 }

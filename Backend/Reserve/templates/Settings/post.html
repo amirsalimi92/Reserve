@@ -47,26 +47,36 @@
                         <!-- from this row should recieve by server -->
                         <td>Where is the Paket</td>
                     </tr>
+                    {% if posts %}
+                    {% for post in posts %}
                     <tr class="postShowResult">
-                        <td class="result ">Amir</td>
-                        <td class="result">IT-Office</td>
+                        <td class="result ">{{ post.staff }}</td>
+                        <td class="result">{{ post.where }}</td>
                     </tr>
-                    <tr class="postShowResult">
+                    {% endfor %}
+                    {% endif %}
+                    <!-- <tr class="postShowResult">
                         <td class="result">Max</td>
                         <td class="result">Joachim's office</td>
                     </tr>
                     <tr class="postShowResult">
                         <td class="result">Feredrik</td>
                         <td class="result">Sylvia's office</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
         <div class="postAdd">
-            <form action="" method="post">
+            <form action="" method="POST">
+                {% csrf_token %}
                 <label for="postAddInput">Add new one: </label>
-                <input placeholder="For whom?" type="text" id="postAddInputName">
-                <input placeholder="Where?" type="text" id="postAddInputWhere">
+                <br>
+                {{ postForm }}
+                <!-- <select name="postAddInputName" id="postAddInputName"> -->
+                <!-- <option value="{{ staff.id }}">{{ staff.first_name }} {{ staff.last_name }}</option> -->
+                </select>
+                <!-- <input placeholder="For whom?" type="text" id="postAddInputName"> -->
+                <!-- <input placeholder="Where?" type="text" id="postAddInputWhere"> -->
                 <button type="submit">Add</button>
             </form>
         </div>

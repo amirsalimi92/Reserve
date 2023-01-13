@@ -47,11 +47,10 @@
                 <label for="profileEmail">Email: </label>
                 {{ profileForm.email }}
             </div>
-            <div class="profilePassword">
+            <!-- <div class="profilePassword">
                 <label for="profilePassword">Password: </label>
                 <input type="password" id="profilePassword">
-            </div>
-            <!-- we need a password input for edit page -->
+            </div> -->
             <div class="office">
                 <label for="profileOffice">Office: </label>
                 {{ profileForm.office }}
@@ -62,6 +61,9 @@
             </div>
             <div class="profileButton">
                 <button type="submit">save</button>
+            </div>
+            <div class="profilePasswordChange">
+                <a href="/members/edit/change_password/">change Password</a>
             </div>
         </form>
     </div>

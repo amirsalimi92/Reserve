@@ -3,6 +3,8 @@ from django.db import models
 # other libraries
 from datetime import date
 
+from members.models import CustomUser
+
 # Create your models here.
 
 class FloorsDB(models.Model):
@@ -18,3 +20,20 @@ class FloorsDB(models.Model):
 
     def __str__(self):
         return f'{self.floor}, number {self.officeName}'
+
+
+class Post(models.Model):
+    staff = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
+    where = models.TextField()
+
+    def __str__(self):
+        return f'{self.staff}'
+
+
+class Reserve(models.Model):
+     staff = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
+     datum = models.DateField()
+     room = models.ForeignKey(FloorsDB, on_delete=models.PROTECT)
+
+     def __str__(self):
+        return f'Office {self.room} for {self.staff} in {self.datum}'

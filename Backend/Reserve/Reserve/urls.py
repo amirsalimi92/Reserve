@@ -28,5 +28,6 @@ urlpatterns = [
     path('members/', include('members.urls')),
     # first page
     path('', views.login_user, name="login"),
+    path('register/', views.register_user, name="register"),
     path('settings/', include('Office.urls')),
 ]

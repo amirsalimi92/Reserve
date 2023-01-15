@@ -98,7 +98,8 @@
 .loginPasswordInput,
 .loginEmailInputReg,
 .loginUsenameInputReg,
-.loginPasswordInputReg {
+.loginPasswordInputReg,
+.loginPasswordInputReg2 {
   border-radius: 0.75rem;
   background-color: silver;
   font-size: 1rem;
@@ -112,7 +113,8 @@
 .loginPasswordInput:focus,
 .loginEmailInputReg:focus,
 .loginUsenameInputReg:focus,
-.loginPasswordInputReg:focus {
+.loginPasswordInputReg:focus,
+.loginPasswordInputReg2:focus {
   opacity: 1;
   outline: none;
   background-color: azure;
@@ -166,18 +168,20 @@
   font-size: 1.2rem;
 }
 
-.loginRegister > span:hover {
+.loginRegister > a:hover {
   scale: 1.2;
 }
 
-.loginRegister > span {
+.loginRegister > a {
   cursor: pointer;
+  color: azure;
+  text-decoration: none;
 }
 
 /* Register */
 .loginRegisterPage {
   grid: loginRegisterPage;
-  display: none;
+  display: grid;
   background-color: rgba(0, 0, 0, 0.7);
   grid-template-rows: 1fr 3fr 1fr;
   grid-row-gap: 5%;
@@ -204,7 +208,8 @@
 .loginFormReg {
   /* grid: loginFormReg; */
   display: grid;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  margin-left: 5%;
 }
 
 .loginButtonReg {
@@ -254,11 +259,13 @@
   font-size: 1.2rem;
 }
 
-.loginLogin > span {
+.loginLogin > a {
   cursor: pointer;
+  color: azure;
+  text-decoration: none;
 }
 
-.loginLogin > span:hover {
+.loginLogin > a:hover {
   scale: 1.2;
 }
 
@@ -331,7 +338,8 @@
   .loginPasswordInput,
   .loginEmailInputReg,
   .loginUsenameInputReg,
-  .loginPasswordInputReg {
+  .loginPasswordInputReg,
+  .loginPasswordInputReg2 {
     max-height: 50px !important;
   }
 }

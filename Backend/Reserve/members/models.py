@@ -23,12 +23,12 @@ class CustomUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     # esme profile ke dar bala related kardim, dar view bekar mire vaghty minevisim request.user.profile
 
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50, blank=True)
+    last_name = models.CharField(max_length=50, blank=True)
     isActive = models.BooleanField(default=True)
     email = models.EmailField(default="@hype.de")
-    office = models.ForeignKey(Office, on_delete=models.PROTECT)
-    department = models.ForeignKey(Department, on_delete=models.PROTECT)
+    office = models.ForeignKey(Office, on_delete=models.PROTECT, blank=True)
+    department = models.ForeignKey(Department, on_delete=models.PROTECT, blank=True)
 
     # status_of_departments = (
     #     (1, 'Developers'), (2, 'IT & Product support'), (3, 'Product management'), 

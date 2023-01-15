@@ -4,12 +4,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
-from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm
 
 
 from .models import CustomUser
 from Office.models import Post
-from .forms import ProfileEditForm
+from .forms import ProfileEditForm, RegisterUserForm
 
 # Create your views here.
 
@@ -31,6 +31,26 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('/')
+
+
+def register_user(request):
+    if request.method == 'POST':
+        form = RegisterUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('/members/profile/')
+
+    else:
+        form = RegisterUserForm()
+    
+    context = {'form': form,}
+
+
+    return render(request, "Members/register.html", context)
 
 
 def profileView(request):

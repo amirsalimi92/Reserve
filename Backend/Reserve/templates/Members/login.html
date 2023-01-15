@@ -49,52 +49,9 @@
                     </div>
                 </form>
             </div>
-            <div class="loginRegister">New here? &nbsp; <span>Register!</span> </div>
+            <div class="loginRegister">New here? &nbsp; <a href="/register/">Register!</a> </div>
         </div>
-        <div class="loginRegisterPage">
-            <div class="loginText">Welcome to <br>&emsp;RESERVE</div>
-            <div class="loginInputReg">
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <div class="loginFormReg">
-                        <label for="emailReg" class="loginEmailLabelReg">Email:</label>
-                        <div>
-                            <input type="email" id="emailReg" placeholder="Insert your email"
-                                class="loginEmailInputReg">
-                            <span class="material-symbols-outlined hidden">visibility
-                            </span>
-                        </div>
-                        <label for="usernameReg" class="loginUsenameLabelReg">Username:</label>
-                        <div>
-                            <input type="text" id="usernameReg" placeholder="Insert your username"
-                                class="loginUsenameInputReg">
-                            <span class="material-symbols-outlined hidden">visibility
-                            </span>
-                        </div>
-                        <label for="passwordReg" class="loginPasswordLabelReg">Password:</label>
-                        <div>
-                            <input type="password" id="passwordReg" placeholder="Insert your password"
-                                class="loginPasswordInputReg">
-                            <span class="material-symbols-outlined loginEye">
-                                visibility
-                            </span>
-                        </div>
-                    </div>
 
-                    <div class="loginButtonReg">
-                        <div class="loginAccept">
-                            <input type="checkbox" name="" id="loginCheckboxReg" value="loginCheckboxAccept"
-                                class="loginCheckboxReg">
-                            <label for="loginCheckboxReg">&nbsp; I accept the rules</label>
-                        </div>
-                        <div class="loginButtonSignup">
-                            <button disabled type="submit">Sign up</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="loginLogin">have an account? &nbsp; <span>Log in!</span> </div>
-        </div>
         <div class="loginBackground">
             <div class="loginTime"></div>
         </div>

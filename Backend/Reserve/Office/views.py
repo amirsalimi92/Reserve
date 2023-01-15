@@ -73,9 +73,6 @@ def about_page(request):
 def report_bugs(request):
     return render(request, "Settings/report.html", {})
 
-def post_view(request):
-    return render(request, 'Settings/post.html', {})
-
 
 def post_view(request):
     post = Post.objects.all()
@@ -97,3 +94,10 @@ def post_view(request):
     }
 
     return render(request, "Settings/post.html", context)
+
+
+def postDelete(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    post.delete()
+
+    return redirect('/settings/post/')

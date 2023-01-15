@@ -1,5 +1,5 @@
-const registerBut = document.querySelector(".loginRegister > span");
-const loginBut = document.querySelector(".loginLogin > span");
+const registerBut = document.querySelector(".loginRegister > a");
+const loginBut = document.querySelector(".loginLogin > a");
 let loginMain = document.querySelector(".loginMain");
 let loginData = document.querySelector(".loginData");
 let loginRegisterPage = document.querySelector(".loginRegisterPage");

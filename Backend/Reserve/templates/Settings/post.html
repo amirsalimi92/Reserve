@@ -51,7 +51,8 @@
                     {% for post in posts %}
                     <tr class="postShowResult">
                         <td class="result ">{{ post.staff }}</td>
-                        <td class="result">{{ post.where }}</td>
+                        <td class="result">{{ post.where }} <a style="float: right;"
+                                href="/office/post_delete/{{ post.id }}">Delete</a> </td>
                     </tr>
                     {% endfor %}
                     {% endif %}

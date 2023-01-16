@@ -135,6 +135,6 @@ LOGIN_REDIRECT_URL = '/office/first/'
 # EMAIL_HOST = 'smtp.mail.yahoo.com'
 # EMAIL_PORT = '587'
 # EMAIL_HOST_USER = 'amir.salimi77@yahoo.com'
-# EMAIL_HOST_PASSWORD = 'Torab Salimi25'
+# EMAIL_HOST_PASSWORD = '******'
 # EMAIL_USE_TLS = True
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -1,20 +1,19 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
-# work with class instead of def
-from django.views.generic import ListView
+from django.core.mail import send_mail
+
 
 # my databases
 from Office.models import FloorsDB, Post
-from members.models import CustomUser
 from members import views as memberView
-
 from Office.forms import PostEditForm, ReserveAddForm
 
 # Create your views here.
 
 
 # new version
+@login_required
 def first_floor(request):
 
     customId = memberView.userFinder(request)
@@ -35,14 +34,9 @@ def first_floor(request):
         "office": officeAdd,
     }
 
-    # datas = FloorsDB.objects.filter(floor = 1)
-    # context = {
-    #     "datas": datas,
-    #     "post": memberView.notif(request)
-    # }
-
     return render(request, "Office/first.html", context)
 
+@login_required
 def second_floor(request):
     datas = FloorsDB.objects.filter(floor = 2)
     context = {
@@ -51,13 +45,7 @@ def second_floor(request):
 
     return render(request, "Office/second.html", context)
 
-
-# class Third_floor(ListView):
-#     model = FloorsDB
-#     template_name = "Office/third.html"
-#     context_object_name = "datas"
-
-
+@login_required
 def third_floor(request):
     datas = FloorsDB.objects.filter(floor = 3)
     context = {
@@ -67,13 +55,16 @@ def third_floor(request):
     return render(request, "Office/third.html", context)
 
 
+@login_required
 def about_page(request):
     return render(request, 'Settings/about.html', {})
 
+@login_required
 def report_bugs(request):
     return render(request, "Settings/report.html", {})
 
 
+@login_required
 def post_view(request):
     post = Post.objects.all()
 
@@ -95,7 +86,7 @@ def post_view(request):
 
     return render(request, "Settings/post.html", context)
 
-
+@login_required
 def postDelete(request, post_id):
     post = Post.objects.get(pk=post_id)
     post.delete()

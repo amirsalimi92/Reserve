@@ -4,3 +4,9 @@ alan bayad filter bez<ary ke kasi yek daftaro dobar nagire.
 
 
 doshanbe roye JS safhe login kar kon.
+
+
+
+Gmail	smtp.gmail.com
+Outlook/Hotmail	smtp-mail.outlook.com
+Yahoo	smtp.mail.yahoo.com

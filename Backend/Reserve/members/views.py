@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect
-from django.urls import reverse, reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+
+from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm
+from django.contrib.auth.models import User
 
 
 from .models import CustomUser
 from Office.models import Post
-from .forms import ProfileEditForm, RegisterUserForm
+from .forms import ProfileEditForm
 
 # Create your views here.
 
@@ -22,8 +25,8 @@ def login_user(request):
             login(request, user)
             return redirect('office/first/')
         else:
-                # messages.success(request, ("There was an error. Please try again."))
-                return redirect('/')
+            # messages.success(request, ("There was an error. Please try again."))
+            return redirect('/')
     else:
         return render(request, "Members/login.html", {})
 
@@ -32,27 +35,30 @@ def logout_user(request):
     logout(request)
     return redirect('/')
 
-
-def register_user(request):
+def register_profile(request):
     if request.method == 'POST':
-        form = RegisterUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('/members/profile/')
+        profileRegister = UserCreationForm(request.POST, request.FILES)
+        if profileRegister.is_valid():
+            user = User.objects.create_user(username= profileRegister.cleaned_data['username'],
+            password = profileRegister.cleaned_data['password1'], is_staff=True)
+
+            # we can write like above or we can write in next line:
+            # user.is_staff = True
+
+            user.save()
+            profileCustom = CustomUser(user=user)
+            profileCustom.save()
+
+            return redirect('/')
 
     else:
-        form = RegisterUserForm()
-    
-    context = {'form': form,}
+        profileRegister = UserCreationForm()
 
+    context = {'form' : profileRegister}
 
     return render(request, "Members/register.html", context)
 
-
+@login_required
 def profileView(request):
     profile = request.user.profile
 
@@ -63,6 +69,7 @@ def profileView(request):
 
     return render(request, "Members/profile.html", context)
 
+@login_required
 def profileEdit(request, profile_id):
 
     profile = CustomUser.objects.get(pk = profile_id)
@@ -71,6 +78,12 @@ def profileEdit(request, profile_id):
         profileForm = ProfileEditForm(request.POST, instance=profile)
         if profileForm.is_valid:
             profileForm.save()
+
+            # try:
+            #     send_mail('Subject', 'Hello, it is message', 'amir.salimi77@yahoo.com', ['amir.salimi1810@gmail.com'],)
+            # except BadHeaderError:
+            #     return HttpResponse('Invalid')
+
 
             return redirect('/members/profile/')
 
@@ -84,6 +97,7 @@ def profileEdit(request, profile_id):
     }
 
     return render(request, "Members/editProfile.html", context)
+
 
 class PasswordChangeView(PasswordChangeView):
     from_class = PasswordChangeForm

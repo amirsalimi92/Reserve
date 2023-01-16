@@ -37,3 +37,10 @@ class Reserve(models.Model):
 
      def __str__(self):
         return f'Office {self.room} for {self.staff} in {self.datum}'
+
+
+class bugReport(models.Model):
+    reporter = models.ForeignKey(CustomUser, on_delete=models.PROTECT, blank=True, null=True)
+    comment = models.TextField()
+
+    

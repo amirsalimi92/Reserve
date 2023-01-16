@@ -94,6 +94,11 @@
   padding-left: 10%;
 }
 
+.loginUsenameLabelReg {
+  font-size: 1.5em;
+  padding-left: 5%;
+}
+
 .loginUsenameInput,
 .loginPasswordInput,
 .loginEmailInputReg,
@@ -199,17 +204,17 @@
   display: grid;
   height: 100%;
   grid-row-gap: 5%;
-  grid-template-rows: 5fr 2fr;
+  grid-template-rows: 4fr 1fr;
   grid-template-areas:
     "loginFormReg"
     "loginButtonReg";
+  margin: 0px 5%;
 }
 
 .loginFormReg {
   /* grid: loginFormReg; */
   display: grid;
-  grid-template-rows: repeat(8, 1fr);
-  margin-left: 5%;
+  grid-template-rows: repeat(6, 1fr);
 }
 
 .loginButtonReg {

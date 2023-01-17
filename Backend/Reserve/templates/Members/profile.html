@@ -82,6 +82,20 @@
 
 
 {% block scripts %}
+
+<script>
+    inputs = document.querySelectorAll('input')
+    inputs.forEach(e => {
+        if (e.value == 'None') {
+            e.value = ''
+            e.setAttribute('placeholder', 'Fill in here')
+            e.style['border'] = '2px solid #ff0000'
+        }
+    });
+
+
+</script>
+
 <script src="{% static 'scripts/navbar.js' %}"></script>
 <script src="{% static 'scripts/profileTheme.js' %}"></script>
 {% endblock %}

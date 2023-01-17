@@ -15,8 +15,7 @@ class FloorsDB(models.Model):
 
     floor = models.IntegerField(choices=status_of_floors)
     officeName = models.CharField(max_length=35)
-    equipment = models.BooleanField(default=True)
-    capacity = models.IntegerField()
+    isActive = models.BooleanField(default=True)
 
     def __str__(self):
         return f'{self.floor}, number {self.officeName}'
@@ -40,7 +39,8 @@ class Reserve(models.Model):
 
 
 class bugReport(models.Model):
-    reporter = models.ForeignKey(CustomUser, on_delete=models.PROTECT, blank=True, null=True)
+
     comment = models.TextField()
 
-    
+    def __str__(self):
+        return f'{self.comment}'

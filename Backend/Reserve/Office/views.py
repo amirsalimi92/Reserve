@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 # my databases
-from Office.models import FloorsDB, Post
+from Office.models import FloorsDB, Post, bugReport, Reserve
 from members import views as memberView
-from Office.forms import PostEditForm, ReserveAddForm
+from Office.forms import PostEditForm, ReserveAddForm, bugReportForm
 
 # Create your views here.
 
@@ -25,6 +26,23 @@ def first_floor(request):
         if officeAdd.is_valid:
             officeAdd.save()
 
+            # data for email
+            email = memberView.userFinderEmail(request)
+            first_name = memberView.userFinderName(request)
+            last_name = memberView.userFinderLastname(request)
+            staffId = memberView.userFinder(request)
+
+            giveReserveRow = Reserve.objects.filter(staff_id=staffId).last()
+            officeId = giveReserveRow.room_id
+            officeRow = FloorsDB.objects.get(pk=officeId)
+            officeNum = officeRow.officeName
+            email_text = f'Dear {first_name} {last_name},\nOffice number {officeNum} has been successfully reserved for you.\n\nCheers\nReserve'
+            try:
+                send_mail('Reserve the office', email_text, 'reserve.app@hotmail.com', [email],)
+
+            except:
+                return BadHeaderError('Invalid')
+
             return redirect('/office/first')
 
     else:
@@ -38,18 +56,78 @@ def first_floor(request):
 
 @login_required
 def second_floor(request):
-    datas = FloorsDB.objects.filter(floor = 2)
+    customId = memberView.userFinder(request)
+
+    if request.method == 'POST':
+        officeAdd = ReserveAddForm(request.POST, initial={'staff': memberView.userFinder(request)})
+
+
+        if officeAdd.is_valid:
+            officeAdd.save()
+
+            # data for email
+            email = memberView.userFinderEmail(request)
+            first_name = memberView.userFinderName(request)
+            last_name = memberView.userFinderLastname(request)
+            staffId = memberView.userFinder(request)
+
+            giveReserveRow = Reserve.objects.filter(staff_id=staffId).last()
+            officeId = giveReserveRow.room_id
+            officeRow = FloorsDB.objects.get(pk=officeId)
+            officeNum = officeRow.officeName
+            email_text = f'Dear {first_name} {last_name},\nOffice number {officeNum} has been successfully reserved for you.\n\nCheers\nReserve'
+            try:
+                send_mail('Reserve the office', email_text, 'reserve.app@hotmail.com', [email],)
+
+            except:
+                return BadHeaderError('Invalid')
+
+            return redirect('/office/second')
+
+    else:
+        officeAdd = ReserveAddForm(initial={'staff': memberView.userFinder(request)})
+
     context = {
-        "datas": datas,
+        "office": officeAdd,
     }
 
     return render(request, "Office/second.html", context)
 
 @login_required
 def third_floor(request):
-    datas = FloorsDB.objects.filter(floor = 3)
+    customId = memberView.userFinder(request)
+
+    if request.method == 'POST':
+        officeAdd = ReserveAddForm(request.POST, initial={'staff': memberView.userFinder(request)})
+
+
+        if officeAdd.is_valid:
+            officeAdd.save()
+
+            # data for email
+            email = memberView.userFinderEmail(request)
+            first_name = memberView.userFinderName(request)
+            last_name = memberView.userFinderLastname(request)
+            staffId = memberView.userFinder(request)
+
+            giveReserveRow = Reserve.objects.filter(staff_id=staffId).last()
+            officeId = giveReserveRow.room_id
+            officeRow = FloorsDB.objects.get(pk=officeId)
+            officeNum = officeRow.officeName
+            email_text = f'Dear {first_name} {last_name},\nOffice number {officeNum} has been successfully reserved for you.\n\nCheers\nReserve'
+            try:
+                send_mail('Reserve the office', email_text, 'reserve.app@hotmail.com', [email],)
+
+            except:
+                return BadHeaderError('Invalid')
+
+            return redirect('/office/third')
+
+    else:
+        officeAdd = ReserveAddForm(initial={'staff': memberView.userFinder(request)})
+
     context = {
-        "datas": datas,
+        "office": officeAdd,
     }
 
     return render(request, "Office/third.html", context)
@@ -58,10 +136,6 @@ def third_floor(request):
 @login_required
 def about_page(request):
     return render(request, 'Settings/about.html', {})
-
-@login_required
-def report_bugs(request):
-    return render(request, "Settings/report.html", {})
 
 
 @login_required
@@ -92,3 +166,35 @@ def postDelete(request, post_id):
     post.delete()
 
     return redirect('/settings/post/')
+
+
+@login_required
+def bugReportView(request):
+    bug = bugReport.objects.all()
+
+    if request.method == 'POST':
+        bugForm = bugReportForm(request.POST)
+        if bugForm.is_valid:
+            bugForm.save()
+
+            # get the last row
+            findLast = bugReport.objects.all().last()
+            report = findLast.comment
+            
+
+            try:
+                send_mail('Report a new BUG!', report, 'reserve.app@hotmail.com', ['amir.salimi1810@gmail.com'],)
+            except:
+                return BadHeaderError('Invalid')
+
+            return redirect('/settings/report/')
+
+    else:
+        bugForm = bugReportForm()
+
+    context= {
+        'bug': bug,
+        'bugForm': bugForm
+    }
+
+    return render(request, "Settings/report.html", context)

@@ -34,21 +34,24 @@
             <div class="reportText">We thank you for helping us improve the program. You can report the problems
                 of the program to us from the menu below or send us your feedback about the program anonymously
                 or with your username.</div>
-            <form action="" method="post" class="reportDataForm">
+            <form action="" method="POST" class="reportDataForm">
+                {% csrf_token %}
                 <div class="reportSender">
-                    <label for="reportSenderLabel">Sender: </label>
+                    {{ bugForm }}
+                    <!-- <label for="reportSenderLabel">Sender: </label>
                     <select name="reportSenderInput" id="reportSenderInput">
                         <option value="anonymous">Amomymous</option>
-                        <!-- It should recieve the username later -->
-                        <option value="username">Username</option>
+                        It should recieve the username later -->
+                    <!-- <option value="username">Username</option>
                     </select>
-                    <textarea name="reportText" id="reportText" cols="30" rows="10"></textarea>
+                    <textarea name="reportText" id="reportText" cols="30" rows="10"></textarea> -->
+                </div>
+                <div class="reportButton">
+                    <button type="submit">Submit</button>
                 </div>
             </form>
         </div>
-        <div class="reportButton">
-            <button type="submit">Submit</button>
-        </div>
+
     </div>
 </div>
 

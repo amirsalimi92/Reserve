@@ -36,30 +36,28 @@
     </div>
     <div class="ffSelector">
         <form action="" method="post" class="firstFloorSelector">
+            {% csrf_token %}
             <div class="ffSelectorOffice">
                 <label for="ffRoomSelector">Select the office: </label>
-                <select name="ffRoomSelector" id="ffRoomSelector">
-                    {% if datas %}
-                    {% for data in datas %}
-                    <option value={{ data.officeName }}>{{ data.officeName }}</option>
-                    {% endfor %}
-                    {% endif %}
-                </select>
+                {{ office }}
             </div>
-            <div class="ffSelectorDate">
-                <label for="calendar">Select the date: </label>
-                <input type="date" name="calendar" id="calendar">
+            <div class="ffSelectorButton">
+                <button type="submit">Reserve!</button>
             </div>
         </form>
-        <div class="ffSelectorButton">
-            <button type="submit">Reserve!</button>
-        </div>
     </div>
 </div>
 {% endblock %}
 
 
 {% block scripts %}
+
+<script>
+    // delete the staff label 
+    staffLabel = document.querySelectorAll(".ffSelectorOffice label");
+    console.log((staffLabel[3].style["display"] = "none"));
+</script>
+
 <script src="{% static 'scripts/navbar.js' %}"></script>
 <script src="{% static 'scripts/floorsTheme.js' %}"></script>
 {% endblock %}

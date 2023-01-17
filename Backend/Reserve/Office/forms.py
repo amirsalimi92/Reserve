@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Reserve
+from .models import Post, Reserve, bugReport
 
 from members.models import CustomUser
 from . import views
@@ -30,4 +30,13 @@ class ReserveAddForm(forms.ModelForm):
             'room': forms.Select(attrs={'id': 'ffRoomSelector'}),
             'datum': DateInput(),
             'staff': forms.Select(attrs={'style' : 'display: none'})
+        }
+
+class bugReportForm(forms.ModelForm):
+    class Meta:
+        model = bugReport
+        fields = ['comment',]
+
+        widgets = {
+            'comment': forms.Textarea(attrs={'id': 'reportText'})
         }

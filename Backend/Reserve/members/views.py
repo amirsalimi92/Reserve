@@ -23,7 +23,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('office/first/')
+            return redirect('/members/profile/')
         else:
             # messages.success(request, ("There was an error. Please try again."))
             return redirect('/')
@@ -48,6 +48,12 @@ def register_profile(request):
             user.save()
             profileCustom = CustomUser(user=user)
             profileCustom.save()
+
+            # Activation link
+            # try:
+            #     send_mail('Register successful', "Dear user,\nYour are successfully registered.\nIt's a link for you to active your account: http://127.0.0.1:8000/\nPlease edit your informations after first login.\n\nBest regards,\nReserve", 'reserve.app@hotmail.com', ['amir.salimi1810@gmail.com'],)
+            # except BadHeaderError:
+            #     return HttpResponse('Invalid')
 
             return redirect('/')
 
@@ -79,10 +85,21 @@ def profileEdit(request, profile_id):
         if profileForm.is_valid:
             profileForm.save()
 
-            # try:
-            #     send_mail('Subject', 'Hello, it is message', 'amir.salimi77@yahoo.com', ['amir.salimi1810@gmail.com'],)
-            # except BadHeaderError:
-            #     return HttpResponse('Invalid')
+            # try to give some data for email
+            firstName = profile.first_name
+            lastName = profile.last_name
+            emailUser = profile.email
+            email = str(emailUser)
+            if (emailUser is None):
+                email = 'amir.salimi1810@gmail.com'
+            text = f'Welcome {firstName} {lastName} to our community. \n\nYour profile is changed successfully. \nIf you have any question, you can just easy reply this email. \n\n\nGood Luck!\nReserve'
+            
+
+
+            try:
+                send_mail('Reserve App', text, 'reserve.app@hotmail.com', [email],)
+            except BadHeaderError:
+                return HttpResponse('Invalid')
 
 
             return redirect('/members/profile/')
@@ -129,3 +146,24 @@ def userFinder(request):
         staffId = staff.id
 
         return staffId
+
+def userFinderEmail(request):
+    userId = request.user.id
+    staff = CustomUser.objects.get(user_id = userId)
+    staffEmail = staff.email
+
+    return staffEmail
+
+def userFinderName(request):
+    userId = request.user.id
+    staff = CustomUser.objects.get(user_id = userId)
+    staffName = staff.first_name
+
+    return staffName
+
+def userFinderLastname(request):
+    userId = request.user.id
+    staff = CustomUser.objects.get(user_id = userId)
+    staffFamily = staff.last_name
+
+    return staffFamily

@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block floors_dd %}
+<li class="navMenuItem"><a href="/reserved/" class="navMenuItemLink">Reserve Status</a></li>
 <li><a href="/office/first">First floor</a></li>
 <li><a href="/office/second">Second floor</a></li>
 <li><a href="/office/third">Third floor</a></li>
@@ -38,13 +39,6 @@
                 {% csrf_token %}
                 <div class="reportSender">
                     {{ bugForm }}
-                    <!-- <label for="reportSenderLabel">Sender: </label>
-                    <select name="reportSenderInput" id="reportSenderInput">
-                        <option value="anonymous">Amomymous</option>
-                        It should recieve the username later -->
-                    <!-- <option value="username">Username</option>
-                    </select>
-                    <textarea name="reportText" id="reportText" cols="30" rows="10"></textarea> -->
                 </div>
                 <div class="reportButton">
                     <button type="submit">Submit</button>
@@ -54,12 +48,11 @@
 
     </div>
 </div>
-
 <!-- end of content -->
 {% endblock %}
 
 
 {% block scripts %}
 <script src="{% static 'scripts/navbar.js' %}"></script>
-<script src="{% static 'scripts/reportTheme.js' %}"></script>
+<script src="{% static 'scripts/report.js' %}"></script>
 {% endblock %}

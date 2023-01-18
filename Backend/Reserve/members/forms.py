@@ -1,8 +1,7 @@
 from django import forms
+
+# my models
 from .models import CustomUser
-from django.contrib.auth.base_user import AbstractBaseUser
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
 
 class ProfileEditForm(forms.ModelForm):
     class Meta:

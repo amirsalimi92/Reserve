@@ -24,12 +24,16 @@ from Office import views as officeViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # office app
     path('office/', include('Office.urls')),
+    # member app
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
     # first page
     path('', views.login_user, name="login"),
+    # register page
     path('register/', views.register_profile, name="register"),
+    # other single param. urls
     path('settings/', include('Office.urls')),
     path('reserved/', officeViews.reservedViews, name='reserved'),
     path('reserved_delete/<reserve_id>/', officeViews.reserveDelete, name='reserveDelete'),

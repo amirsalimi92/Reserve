@@ -91,6 +91,16 @@ form {
     justify-content: center;
   }
 
+  #id_datum {
+    display: block;
+    margin: 3% auto 2% auto;
+  }
+
+  #ffRoomSelector {
+    display: block;
+    margin: 3% auto 2% auto;
+  }
+
   .ffSelectorButton {
     display: flex;
     justify-content: center;
@@ -114,5 +124,15 @@ form {
 
   .ffSelector {
     grid-template-columns: 0.675fr 0.325fr;
+  }
+
+  #id_datum {
+    display: block;
+    margin: 3% auto 2% auto;
+  }
+
+  #ffRoomSelector {
+    display: block;
+    margin: 3% auto 2% auto;
   }
 }

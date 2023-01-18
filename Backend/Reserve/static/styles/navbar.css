@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
-/* From Google */
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
-  color: azure;
-  cursor: pointer;
-}
-
 /* original tags */
 * {
   font-family: "Fredoka One";
@@ -139,22 +132,6 @@ li {
 .navMenuItem:hover > .dropdown,
 .dropdown:hover {
   display: block;
-}
-
-/* night theme */
-.nightNavbar {
-  background-color: #272b33;
-  transition: 0.5s;
-}
-
-.nightDropdown {
-  background: #272b33;
-  transition: 0.5s;
-}
-
-.navMenuNight {
-  background-color: #272b33 !important;
-  transition: 0.5s;
 }
 
 @media (max-width: 768px) {

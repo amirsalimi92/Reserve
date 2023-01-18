@@ -47,3 +47,15 @@ ul > li {
 .version {
   margin-top: 3%;
 }
+
+@media only screen and (max-width: 550px) {
+  .baseAbout {
+    margin: 5% 4% 5% 4%;
+  }
+}
+
+@media only screen and (max-height: 450px) {
+  .baseAbout {
+    margin: 4% 7.5% 5% 7.5%;
+  }
+}

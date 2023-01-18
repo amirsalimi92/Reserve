@@ -113,7 +113,7 @@
 }
 
 .postAdd button,
-.postShowResult a {
+.result a {
   cursor: pointer;
   color: #fff;
   background-color: #1971c2;
@@ -126,7 +126,7 @@
   text-decoration: none;
 }
 
-.postShowResult a {
+.result a {
   background-color: red;
   border-color: red;
 }
@@ -143,42 +143,6 @@
 
 .postAdd select {
   height: 2.1rem;
-}
-
-/* night theme */
-.postBaseNight {
-  background-color: #0a0c10 !important;
-  transition: 0.5s;
-}
-
-.postSearchLabelNight {
-  color: lightgray;
-  transition: 0.5s;
-}
-
-.postSearchInputNight {
-  background-color: #0a0c10;
-  border: 1px solid whitesmoke !important;
-  color: lightgray;
-  transition: 0.5s;
-}
-
-.postButtonNight {
-  background-color: #515459 !important;
-  border-color: #515459 !important;
-  color: lightgray !important;
-  transition: 0.5s;
-}
-
-.postTable {
-  color: lightgray !important;
-  transition: 0.5s;
-}
-
-.postTableNight {
-  background-color: #0a0c10 !important;
-  color: lightgray;
-  transition: 0.5s;
 }
 
 @media only screen and (max-width: 550px) {

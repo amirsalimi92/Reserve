@@ -1,11 +1,10 @@
 from django.db import models
 
-# other libraries
+#give the time
 from datetime import date
 
+# my models
 from members.models import CustomUser
-
-# Create your models here.
 
 class FloorsDB(models.Model):
 
@@ -18,7 +17,7 @@ class FloorsDB(models.Model):
     isActive = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.floor}, number {self.officeName}'
+        return f'Number {self.officeName}'
 
 
 class Post(models.Model):

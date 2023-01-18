@@ -1,24 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
-
 
 # my databases
 from Office.models import FloorsDB, Post, bugReport, Reserve
-from members import views as memberView
-from Office.forms import PostEditForm, ReserveAddForm, bugReportForm
 from members.models import CustomUser
 
-# Create your views here.
+# my forms
+from Office.forms import PostEditForm, ReserveAddForm, bugReportForm
+
+# Other views
+from members import views as memberView
 
 
-# new version
 @login_required
 def first_floor(request):
-
-    customId = memberView.userFinder(request)
 
     if request.method == 'POST':
         officeAdd = ReserveAddForm(request.POST, initial={'staff': memberView.userFinder(request)})
@@ -55,9 +51,9 @@ def first_floor(request):
 
     return render(request, "Office/first.html", context)
 
+
 @login_required
 def second_floor(request):
-    customId = memberView.userFinder(request)
 
     if request.method == 'POST':
         officeAdd = ReserveAddForm(request.POST, initial={'staff': memberView.userFinder(request)})
@@ -94,9 +90,9 @@ def second_floor(request):
 
     return render(request, "Office/second.html", context)
 
+
 @login_required
 def third_floor(request):
-    customId = memberView.userFinder(request)
 
     if request.method == 'POST':
         officeAdd = ReserveAddForm(request.POST, initial={'staff': memberView.userFinder(request)})
@@ -134,9 +130,11 @@ def third_floor(request):
     return render(request, "Office/third.html", context)
 
 
+
 @login_required
 def about_page(request):
     return render(request, 'Settings/about.html', {})
+
 
 
 @login_required
@@ -161,12 +159,15 @@ def post_view(request):
 
     return render(request, "Settings/post.html", context)
 
+
+
 @login_required
 def postDelete(request, post_id):
     post = Post.objects.get(pk=post_id)
     post.delete()
 
     return redirect('/settings/post/')
+
 
 
 @login_required
@@ -201,6 +202,7 @@ def bugReportView(request):
     return render(request, "Settings/report.html", context)
 
 
+
 @login_required
 def reservedViews(request):
     offices = Reserve.objects.all()
@@ -210,6 +212,7 @@ def reservedViews(request):
     }
 
     return render(request, 'Office/reserved.html', context)
+
 
 
 @login_required

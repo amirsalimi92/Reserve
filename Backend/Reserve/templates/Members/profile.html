@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block floors_dd %}
+<li class="navMenuItem"><a href="/reserved/" class="navMenuItemLink">Reserve Status</a></li>
 <li><a href="/office/first/">First floor</a></li>
 <li><a href="/office/second/">Second floor</a></li>
 <li><a href="/office/third/">Third floor</a></li>
@@ -46,28 +47,13 @@
                 <label for="profileEmail">Email: </label>
                 <input type="email" id="profileEmail" value="{{ profile.email }}" disabled>
             </div>
-            <!-- for editing
-            <div class="profilePassword">
-                <label for="profilePassword">Password: </label>
-                <input type="password" id="profilePassword">
-            </div> -->
-            <!-- we need a password input for edit page -->
             <div class="office">
                 <label for="profileOffice">Office: </label>
                 <input type="text" value="{{ profile.office }}" disabled>
-                <!-- for editing
-                <select id="profileOffice">
-                    <option value="Bonn">Bonn</option>
-                </select> -->
-
             </div>
             <div class="department">
                 <label for="profileDepartment">Department: </label>
                 <input type="text" value="{{ profile.department }}" disabled>
-                <!-- for editing
-                <select id="profileDepartment">
-                    <option value="Developers">Developers</option>
-                </select> -->
             </div>
         </form>
     </div>
@@ -93,9 +79,7 @@
         }
     });
 
-
 </script>
 
 <script src="{% static 'scripts/navbar.js' %}"></script>
-<script src="{% static 'scripts/profileTheme.js' %}"></script>
 {% endblock %}

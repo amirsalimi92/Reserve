@@ -1,9 +1,8 @@
 from django.urls import path
 
-# for change the password
-from django.contrib.auth import views as auth_views
-
+# my views
 from . import views
+
 
 urlpatterns = [
     path('login_user/', views.login_user, name="login"),

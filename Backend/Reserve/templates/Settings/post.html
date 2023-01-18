@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block floors_dd %}
+<li class="navMenuItem"><a href="/reserved/" class="navMenuItemLink">Reserve Status</a></li>
 <li><a href="/office/first">First floor</a></li>
 <li><a href="/office/second">Second floor</a></li>
 <li><a href="/office/third">Third floor</a></li>
@@ -37,14 +38,12 @@
                 <button type="submit">Go</button>
                 <button class="postSearchRefresh">Refresh</button>
             </div>
-
         </div>
         <div class="postShow">
             <table>
                 <tbody>
                     <tr class="postShowHead">
                         <td>Reciever</td>
-                        <!-- from this row should recieve by server -->
                         <td>Where is the Paket</td>
                     </tr>
                     {% if posts %}
@@ -56,14 +55,6 @@
                     </tr>
                     {% endfor %}
                     {% endif %}
-                    <!-- <tr class="postShowResult">
-                        <td class="result">Max</td>
-                        <td class="result">Joachim's office</td>
-                    </tr>
-                    <tr class="postShowResult">
-                        <td class="result">Feredrik</td>
-                        <td class="result">Sylvia's office</td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -73,22 +64,15 @@
                 <label for="postAddInput">Add new one: </label>
                 <br>
                 {{ postForm }}
-                <!-- <select name="postAddInputName" id="postAddInputName"> -->
-                <!-- <option value="{{ staff.id }}">{{ staff.first_name }} {{ staff.last_name }}</option> -->
-                <!-- </select> -->
-                <!-- <input placeholder="For whom?" type="text" id="postAddInputName"> -->
-                <!-- <input placeholder="Where?" type="text" id="postAddInputWhere"> -->
                 <button type="submit">Add</button>
             </form>
         </div>
     </div>
 </div>
-
 {% endblock %}
 
 
 {% block scripts %}
 <script src="{% static 'scripts/navbar.js' %}"></script>
-<script src="{% static 'scripts/postTheme.js' %}"></script>
 <script src="{% static 'scripts/postSearch.js' %}"></script>
 {% endblock %}

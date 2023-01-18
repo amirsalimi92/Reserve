@@ -38,7 +38,6 @@
                 <button type="submit">Go</button>
                 <button class="postSearchRefresh">Refresh</button>
             </div>
-
         </div>
         <div class="postShow">
             <table>
@@ -57,7 +56,6 @@
                         <td class="result">{{ office.datum }}
                             <a style="float: right;" href="/reserved_delete/{{ office.id }}">Delete</a>
                         </td>
-
                     </tr>
                     {% endfor %}
                     {% endif %}
@@ -66,12 +64,10 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
 
 
 {% block scripts %}
 <script src="{% static 'scripts/navbar.js' %}"></script>
-<script src="{% static 'scripts/postTheme.js' %}"></script>
-<script src="{% static 'scripts/postSearch.js' %}"></script>
+<script src="{% static 'scripts/reserved.js' %}"></script>
 {% endblock %}

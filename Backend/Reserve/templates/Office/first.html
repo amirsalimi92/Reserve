@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block floors_dd %}
+<li class="navMenuItem"><a href="/reserved/" class="navMenuItemLink">Reserve Status</a></li>
 <li><a href="/office/second/">Second floor</a></li>
 <li><a href="/office/third/">Third floor</a></li>
 {% endblock %}
@@ -40,18 +41,7 @@
             <div class="ffSelectorOffice">
                 <label for="ffRoomSelector">Select the office: </label>
                 {{ office }}
-                <!-- <select name="ffRoomSelector" id="ffRoomSelector">
-                    {% if datas %}
-                    {% for data in datas %}
-                    <option value="FFO103">{{ data.officeName }}</option>
-                    {% endfor %}
-                    {% endif %}
-                </select> -->
             </div>
-            <!-- <div class="ffSelectorDate">
-                <label for="calendar">Select the date: </label>
-                <input type="date" name="calendar" id="calendar">
-            </div> -->
             <div class="ffSelectorButton">
                 <button type="submit">Reserve!</button>
             </div>
@@ -70,5 +60,5 @@
 </script>
 
 <script src="{% static 'scripts/navbar.js' %}"></script>
-<script src="{% static 'scripts/floorsTheme.js' %}"></script>
+<script src="{% static 'scripts/floors.js' %}"></script>
 {% endblock %}

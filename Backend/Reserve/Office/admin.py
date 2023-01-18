@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+# my models
 from Office.models import FloorsDB, Post, Reserve, bugReport
 
 # Register your models here.

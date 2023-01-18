@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block floors_dd %}
+<li class="navMenuItem"><a href="/reserved/" class="navMenuItemLink">Reserve Status</a></li>
 <li><a href="/office/first/">First floor</a></li>
 <li><a href="/office/second/">Second floor</a></li>
 <li><a href="/office/third/">Third floor</a></li>
@@ -47,10 +48,6 @@
                 <label for="profileEmail">Email: </label>
                 {{ profileForm.email }}
             </div>
-            <!-- <div class="profilePassword">
-                <label for="profilePassword">Password: </label>
-                <input type="password" id="profilePassword">
-            </div> -->
             <div class="office">
                 <label for="profileOffice">Office: </label>
                 {{ profileForm.office }}
@@ -69,7 +66,6 @@
     </div>
     <div class="profileName">{{ profile.first_name }}</div>
     <div class="profileFamily">{{ profile.last_name }}</div>
-
 </div>
 <!-- end of content -->
 {% endblock %}
@@ -88,5 +84,4 @@
 </script>
 
 <script src="{% static 'scripts/navbar.js' %}"></script>
-<script src="{% static 'scripts/profileTheme.js' %}"></script>
 {% endblock %}

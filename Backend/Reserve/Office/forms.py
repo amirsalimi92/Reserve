@@ -1,14 +1,19 @@
 from django import forms
-from .models import Post, Reserve, bugReport
 
+# my models
+from .models import Post, Reserve, bugReport
 from members.models import CustomUser
+
+# my views
 from . import views
 
 
 
 
+# I want to use the date filed without extra filed like time
 class DateInput(forms.DateInput):
     input_type = 'date'
+
 
 class PostEditForm(forms.ModelForm):
     class Meta:
@@ -21,7 +26,6 @@ class PostEditForm(forms.ModelForm):
         }
 
 class ReserveAddForm(forms.ModelForm):
-
     class Meta:
         model = Reserve
         fields = ['datum', 'room', 'staff']

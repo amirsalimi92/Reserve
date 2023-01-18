@@ -201,36 +201,6 @@ input:disabled {
   border-color: #ffa218;
 }
 
-/* night theme */
-.night {
-  background: #272b33;
-  background-color: #0a0c10;
-  color: lightgray;
-  transition: 0.5s;
-}
-
-.profileTopLeftNight {
-  background-image: linear-gradient(to bottom, #272b33, #515459);
-  transition: 0.5s;
-}
-
-.profileLeftNight {
-  background-color: #515459;
-  transition: 0.5s;
-}
-
-.profileInputNight,
-.profileSelectNight {
-  background-color: #0a0c10;
-  border: 1px solid whitesmoke !important;
-  color: lightgray;
-}
-
-.profileButtonNight {
-  background-color: #515459 !important;
-  border-color: #515459 !important;
-}
-
 /* mobile view */
 @media only screen and (max-width: 550px) {
   .profilePhoto,
@@ -258,6 +228,7 @@ input:disabled {
   .profileButton {
     display: block;
     padding-left: 0;
+    text-align: center;
   }
 
   .profilePasswordChange {
@@ -273,6 +244,11 @@ input:disabled {
   .passwordBase input,
   .passwordBase select {
     width: 80%;
+  }
+
+  .profilePasswordChange {
+    display: block;
+    text-align: center;
   }
 
   .profilePassword:nth-child(3) {

@@ -1,9 +1,49 @@
-.title {
-  margin-left: 5%;
-  margin-right: 33%;
+.baseAbout {
+  margin: 5% 35% 10% 5%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 5%;
 }
 
 .banner {
   font-size: 3rem;
   word-break: normal;
+  font-family: sans-serif !important;
+  text-align: center;
+}
+
+.head {
+  margin-bottom: 5%;
+}
+
+.head > span {
+  display: block;
+  margin-bottom: 2%;
+}
+
+.head > p {
+  margin-left: 2%;
+  padding-right: 15%;
+  font-weight: lighter;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.items {
+  margin-bottom: 3%;
+}
+
+.items > ul {
+  margin-left: 7.5%;
+}
+
+.phase > ul {
+  margin-left: 7.5%;
+}
+
+ul > li {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.version {
+  margin-top: 3%;
 }

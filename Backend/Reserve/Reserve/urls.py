@@ -19,6 +19,7 @@ from django.urls import path, include
 # import view from members to make login page as first page
 
 from members import views
+from Office import views as officeViews
 
 
 urlpatterns = [
@@ -30,4 +31,6 @@ urlpatterns = [
     path('', views.login_user, name="login"),
     path('register/', views.register_profile, name="register"),
     path('settings/', include('Office.urls')),
+    path('reserved/', officeViews.reservedViews, name='reserved'),
+    path('reserved_delete/<reserve_id>/', officeViews.reserveDelete, name='reserveDelete'),
 ]

@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from Office.models import FloorsDB, Post, bugReport, Reserve
 from members import views as memberView
 from Office.forms import PostEditForm, ReserveAddForm, bugReportForm
+from members.models import CustomUser
 
 # Create your views here.
 
@@ -198,3 +199,45 @@ def bugReportView(request):
     }
 
     return render(request, "Settings/report.html", context)
+
+
+@login_required
+def reservedViews(request):
+    offices = Reserve.objects.all()
+
+    context = {
+        'offices': offices
+    }
+
+    return render(request, 'Office/reserved.html', context)
+
+
+@login_required
+def reserveDelete(request, reserve_id):
+    office = Reserve.objects.get(id= reserve_id)
+    
+
+    fnameWhoDeleted = memberView.userFinderName(request)
+    lnameWhoDeleted = memberView.userFinderLastname(request)
+
+    
+    officeNumberId = office.room_id
+    officeRow = FloorsDB.objects.get(pk=officeNumberId)
+    officeName = officeRow.officeName
+
+    staffId = office.staff_id
+    whoseDeleted = CustomUser.objects.get(id = staffId)
+    fnameWhoseDeleted = whoseDeleted.first_name
+    lnameWhoseDeleted = whoseDeleted.last_name
+    whoseDeletedEmail = whoseDeleted.email
+
+    office.delete()
+
+    emailText = f'Dear {fnameWhoseDeleted} {lnameWhoseDeleted}\nYour reserved office with number {officeName} is deleted by {fnameWhoDeleted} {lnameWhoDeleted}.\nIf you need still your office, then try to reserve it again.\n\nGood Luck\nReserve'
+
+    try:
+        send_mail('Your reserve is deleted', emailText, 'reserve.app@hotmail.com', [whoseDeletedEmail],)
+    except:
+        return BadHeaderError('Invalid')
+
+    return redirect('/reserved/')

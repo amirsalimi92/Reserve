@@ -1,0 +1,77 @@
+{% extends 'base_floors.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="shortcut icon" href="{% static 'styles/medias/tabLogo.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'styles/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'styles/post.css' %}">
+{% endblock %}
+{% block title %}
+<title>Reserved offices | Reserve</title>
+{% endblock %}
+
+{% block floors_dd %}
+<li><a href="/office/first">First floor</a></li>
+<li><a href="/office/second">Second floor</a></li>
+<li><a href="/office/third">Third floor</a></li>
+{% endblock %}
+
+{% block settings_dd %}
+<li><a href="/settings/about/">About the APP</a></li>
+<li><a href="/settings/report/">Report the Bug</a></li>
+<li><a href="/members/profile">Preferences</a></li>
+{% endblock %}
+
+{% block post %}
+<a href="/settings/post/" class="navMenuItemLink">Post Status</a>
+{% endblock %}
+
+{% block body %}
+<!-- Start of content -->
+<div class="postBase">
+    <div class="postContent">
+        <div class="postSearch">
+            <label for="postSearchInput">Search here: </label>
+            <input type="text" id="postSearchInput">
+            <div>
+                <button type="submit">Go</button>
+                <button class="postSearchRefresh">Refresh</button>
+            </div>
+
+        </div>
+        <div class="postShow">
+            <table>
+                <tbody>
+                    <tr class="postShowHead">
+                        <td>For</td>
+                        <!-- from this row should recieve by server -->
+                        <td>Office</td>
+                        <td>Date</td>
+                    </tr>
+                    {% if offices %}
+                    {% for office in offices %}
+                    <tr class="postShowResult">
+                        <td class="result ">{{ office.staff }}</td>
+                        <td class="result">{{ office.room }}</td>
+                        <td class="result">{{ office.datum }}
+                            <a style="float: right;" href="/reserved_delete/{{ office.id }}">Delete</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'scripts/navbar.js' %}"></script>
+<script src="{% static 'scripts/postTheme.js' %}"></script>
+<script src="{% static 'scripts/postSearch.js' %}"></script>
+{% endblock %}

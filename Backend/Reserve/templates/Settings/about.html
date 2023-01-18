@@ -12,14 +12,14 @@
 {% endblock %}
 
 {% block floors_dd %}
-<li><a href="/office/first">First floor</a></li>
-<li><a href="/office/second">Second floor</a></li>
-<li><a href="/office/third">Third floor</a></li>
+<li><a href="/office/first/">First floor</a></li>
+<li><a href="/office/second/">Second floor</a></li>
+<li><a href="/office/third/">Third floor</a></li>
 {% endblock %}
 
 {% block settings_dd %}
 <li><a href="/settings/report/">Report the Bug</a></li>
-<li><a href="/members/profile">Preferences</a></li>
+<li><a href="/members/profile/">Preferences</a></li>
 {% endblock %}
 
 {% block post %}
@@ -27,52 +27,62 @@
 {% endblock %}
 
 {% block body %}
-<div class="base">
+<div class="baseAbout">
     <div class="title">
-        <div class="banner">Success is Not Final, Failure is Not Fatal: it is the Courage to Continue that Counts.</div>
+        <div class="banner">"Success is Not Final, Failure is Not Fatal: it is the Courage to Continue that Counts."
+        </div>
     </div>
     <div class="content">
         <div class="head">
-            I tried to challenge my knowledge in the field of programming by making this Application.
-            This is my first App that covers all stacks.
+            <span>About me and this Application</span>
+            <p>Hi... <br>My name is Amir Salimi. I tried to challenge my knowledge in the field of programming by making
+                this Application.
+                This is my first App that covers all stacks.</p>
         </div>
         <div class="items">
             Items used in the program:
-            <br>
-            Backend-Language: Python
-            <br>
-            Backend-Framework: Django
-            <br>
-            Frontend: HTML + CSS + Javascript
-            <br>
-            Database: SQLite
+            <ul>
+                <li>
+                    Backend-Language: Python
+                </li>
+                <li>
+                    Backend-Framework: Django
+                </li>
+                <li>
+                    Frontend: HTML + CSS + Javascript
+                </li>
+                <li>
+                    Database: SQLite
+                </li>
+            </ul>
         </div>
         <div class="phase">
-            Implementation phases of the program: <br>
-            Designing documents and styling them <br>
-            Writing initial scripts and initial front-end preparation <br>
-            Getting started with backend and server-side setup <br>
-            Initial execution of the program under test with minimums <br>
-            Modifying the front of the program and adapting it to the back <br>
-            Deploy the program on the host <br>
-            Fix deployment errors <br>
-            Front redesign with a more beautiful appearance <br>
-            Use the framework for the front <br>
-            Redeploy under the new version <br>
+            Implementation phases of the program:
+            <ul>
+                <li>
+                    Designing documents and styling them </li>
+                <li>
+                    Writing initial scripts and initial front-end preparation </li>
+                <li>
+                    Getting started with backend and server-side setup </li>
+                <li>
+                    Initial execution of the program under test with minimums </li>
+                <li>
+                    Modifying the front of the program and adapting it to the back </li>
+                <li>
+                    Deploy the program on the host </li>
+                <li>
+                    Fix deployment errors </li>
+                <li>
+                    Front redesign with a more beautiful appearance </li>
+                <li>
+                    Use the framework for the front </li>
+                <li>
+                    Redeploy under the new version </li>
+            </ul>
         </div>
+        <div class="version">Version: 0.1 (Debug mode)</div>
     </div>
-    Implementation phases of the program
-    Designing documents and styling them
-    Writing initial scripts and initial front-end preparation
-    Getting started with backend and server-side setup
-    Initial execution of the program under test with minimums
-    Modifying the front of the program and adapting it to the back
-    Deploy the program on the host
-    Fix deployment errors
-    Front redesign with a more beautiful appearance
-    Use the framework for the front
-    Redeploy under the new version
-</div>
 </div>
 {% endblock %}
 

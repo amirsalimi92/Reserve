@@ -1,8 +1,9 @@
 -How to active the virtual environment?
     Backend\env\Scripts\activate.bat
-
-    *Then you'll see the PS (Windows) or env (MacOS) before the lines in Terminal
-    
+        -For MacOS:
+        env/bin/
+        run: source activate
+         
 
 Requirment on Device:
 -Python 3.11.1
@@ -11,3 +12,9 @@ Requirment on Device:
 
 on Virtual environment:
 -Django 4.1.5
+
+
+
+
+For deploy:
+https://www.youtube.com/watch?v=wFtiFQgk5Fk

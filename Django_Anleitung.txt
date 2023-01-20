@@ -12,6 +12,7 @@ Requirment on Device:
 
 on Virtual environment:
 -Django 4.1.5
+-pip install django-auto-logout
 
 
 

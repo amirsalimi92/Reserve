@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+# for redirect to login page after auto logout
+from datetime import timedelta
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # automatic logout
+    # 'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = 'Reserve.urls'
@@ -64,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },
@@ -135,6 +141,16 @@ LOGIN_REDIRECT_URL = '/office/first/'
 EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'reserve.app@hotmail.com'
-EMAIL_HOST_PASSWORD = '***'
+EMAIL_HOST_PASSWORD = 'Amir_1992'
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+# Auto logout def in MIDDLEWARE
+# AUTO_LOGOUT = {'IDLE_TIME': 60}
+
+# auto redirect
+# AUTO_LOGOUT = {
+#     'IDLE_TIME': timedelta(minutes=1),
+#     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+# }
